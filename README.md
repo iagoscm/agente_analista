@@ -1,4 +1,4 @@
-# Agente - Analista Júnior de Mídia
+# Agente Monks - Analista Júnior de Mídia
 
 Este projeto é um MVP de um Agente de IA Autônomo desenvolvido para atuar como um "Analista Júnior de Mídia". O agente é capaz de interpretar perguntas em linguagem natural, consultar proativamente o dataset `thelook_ecommerce` no Google BigQuery e fornecer insights analíticos acionáveis sobre volume de tráfego, receita e performance de canais.
 
@@ -27,8 +27,8 @@ Siga os passos abaixo para rodar a aplicação localmente:
 
 ### 1. Clonar o repositório e preparar o ambiente
 ```bash
-git clone https://github.com/iagoscm/agente_analista.git
-cd agente_analista
+git clone <URL_DO_SEU_REPOSITORIO>
+cd mvp-growth-media
 python -m venv venv
 ```
 
@@ -45,12 +45,22 @@ pip install -r requirements.txt
 
 ### 3. Configurar as Credenciais e Chaves de API
 
-Você precisará de duas chaves para o projeto se comunicar com o Google Cloud e o Gemini.
+O projeto é flexível e permite que você escolha qual provedor de IA deseja utilizar. Você precisará do arquivo de credenciais do Google Cloud e da chave de API do provedor escolhido.
 
-1.  Crie um arquivo chamado `.env` na raiz do projeto e adicione sua chave de API do Gemini:
+1. Coloque o seu arquivo JSON de credenciais de serviço do Google Cloud (para acesso ao BigQuery) dentro da pasta `credentials/` com o nome `credentials.json`. Um arquivo de exemplo já está presente na pasta.
+2. Crie um arquivo chamado `.env` na raiz do projeto seguindo a estrutura abaixo (adicione a chave da IA que preferir). Um arquivo de exemplo já está presente na pasta principal (.env.example) com a seguinte estrutura:
 
 ```env
-GOOGLE_API_KEY="sua_chave_do_gemini_aqui"
+# Escolha a IA que o agente vai usar: gemini, openai ou anthropic
+LLM_PROVIDER="gemini" 
+
+# Chaves das IAs (Preencha apenas a que for utilizar)
+GOOGLE_API_KEY="sua_chave_gemini_aqui"
+OPENAI_API_KEY="sua_chave_openai_aqui"
+ANTHROPIC_API_KEY="sua_chave_anthropic_aqui"
+
+# Credencial do Banco de Dados
+GOOGLE_APPLICATION_CREDENTIALS="credentials/credentials.json"
 ```
 
 1.  Coloque o seu arquivo JSON de credenciais de serviço do Google Cloud (para acesso ao BigQuery) dentro da pasta `credentials/` com o nome `credentials.json`.
@@ -69,7 +79,7 @@ A API estará disponível em `http://127.0.0.1:8000`.
 
 Acesse a documentação interativa gerada automaticamente (Swagger UI) em:  **http://127.0.0.1:8000/docs**
 
-Utilize o endpoint `POST /chat` clicando em *Try it out* e envie o seguinte JSON de exemplo:
+Utilize o endpoint `POST /chat` clicando em *Try it out* e envie o seguinte JSON de exemplo (que já estará disponível na página):
 
 ```json
 {

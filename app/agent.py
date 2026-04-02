@@ -7,11 +7,19 @@ from app.database import run_bigquery_query
 
 load_dotenv()
 
-llm = ChatGoogleGenerativeAI(
-    model="gemini-flash-latest", 
-    temperature=0,
-    google_api_key=os.getenv("GOOGLE_API_KEY")
-)
+provider = os.getenv("LLM_PROVIDER", "gemini").lower()
+
+if provider == "openai":
+    from langchain_openai import ChatOpenAI
+    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+    
+elif provider == "anthropic":
+    from langchain_anthropic import ChatAnthropic
+    llm = ChatAnthropic(model="claude-3-haiku-20240307", temperature=0)
+    
+else:
+    from langchain_google_genai import ChatGoogleGenerativeAI
+    llm = ChatGoogleGenerativeAI(model="gemini-flash-latest", temperature=0)
 
 tools = [
     Tool(
@@ -28,7 +36,7 @@ tools = [
     )
 ]
 
-agent = create_react_agent(llm, tools)  
+agent = create_react_agent(llm, tools) 
 
 system_message = """Você é um Analista Júnior de Mídia experiente. 
 Seu objetivo é transformar dados brutos do BigQuery em insights acionáveis para gerentes.
@@ -37,7 +45,6 @@ Se a pergunta estiver fora do escopo de e-commerce e mídia, informe educadament
 
 def get_agent_response(user_input: str):
     """Função que a API vai chamar."""
-    
     resposta = agent.invoke({
         "messages": [
             ("system", system_message),

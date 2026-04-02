@@ -4,6 +4,8 @@ langgraph
 langchain-core
 langchain
 langchain-google-genai
+langchain-anthropic
+langchain-openai
 google-cloud-bigquery
 pydantic
 python-dotenv
