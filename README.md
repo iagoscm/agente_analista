@@ -27,8 +27,8 @@ Siga os passos abaixo para rodar a aplicação localmente:
 
 ### 1. Clonar o repositório e preparar o ambiente
 ```bash
-git clone <URL_DO_SEU_REPOSITORIO>
-cd mvp-growth-media
+git clone https://github.com/iagoscm/agente_analista.git
+cd agente_analista
 python -m venv venv
 ```
 
