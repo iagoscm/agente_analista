@@ -1,8 +1,7 @@
 from app.database import run_bigquery_query
 
-# Query simples para testar se ele lê o dataset do case
 test_query = "SELECT traffic_source, count(*) as total FROM `bigquery-public-data.thelook_ecommerce.users` GROUP BY 1 LIMIT 5"
 
-print("Testando conexão com BigQuery...")
+print("Testando conexão com BigQuery")
 resultado = run_bigquery_query(test_query)
 print(resultado)
