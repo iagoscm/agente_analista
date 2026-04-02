@@ -67,7 +67,7 @@ A API estará disponível em `http://127.0.0.1:8000`.
 
 ### 5. Como Testar
 
-Acesse a documentação interativa gerada automaticamente (Swagger UI) em:  **https://www.google.com/search?q=http://127.0.0.1:8000/docs**
+Acesse a documentação interativa gerada automaticamente (Swagger UI) em:  **http://127.0.0.1:8000/docs**
 
 Utilize o endpoint `POST /chat` clicando em *Try it out* e envie o seguinte JSON de exemplo:
 
