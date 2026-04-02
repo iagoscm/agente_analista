@@ -1,4 +1,4 @@
-# Agente Monks - Analista Júnior de Mídia
+# Agente IA - Analista Júnior de Mídia
 
 Este projeto é um MVP de um Agente de IA Autônomo desenvolvido para atuar como um "Analista Júnior de Mídia". O agente é capaz de interpretar perguntas em linguagem natural, consultar proativamente o dataset `thelook_ecommerce` no Google BigQuery e fornecer insights analíticos acionáveis sobre volume de tráfego, receita e performance de canais.
 
