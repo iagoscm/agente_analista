@@ -32,8 +32,7 @@
 - [x] Validar se o agente faz JOINs e agregações corretas no BigQuery (`users` + `orders` + `items`). 
 
 #### 5. Documentação e Entrega (Repositório)
-- [ ] Criar README.md excelente. 
-- [ ] Adicionar instruções de setup claras no README.
-- [ ] Incluir diagrama ou explicação da arquitetura no README. 
-- [ ] Garantir que o repositório no GitHub seja **Público**. 
-- [ ] Confirmar o recebimento do e-mail da Monks e enviar o link até 03/04 às 23:59. 
+- [x] Criar README.md excelente. 
+- [x] Adicionar instruções de setup claras no README.
+- [x] Incluir diagrama ou explicação da arquitetura no README. 
+- [x] Garantir que o repositório no GitHub seja **Público**. 
